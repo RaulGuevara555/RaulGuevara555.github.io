@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Método gráfico - Explicación</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <h1>Método de la Falsa Posicion (Regula-Falsi) - Explicación</h1>
+    <p>
+        El método de la falsa posición es un método numérico utilizado para encontrar una aproximación a la raíz de una función. Este método es similar al método de la bisección, ya que se basa en la idea de dividir el intervalo donde se encuentra la raíz en dos partes, y luego buscar la raíz en el subintervalo donde la función cambia de signo.
+    </p>
+    <p>
+        La principal diferencia entre el método de la falsa posición y el método de la bisección es que en el método de la falsa posición se utiliza una interpolación lineal para aproximar la posición de la raíz en cada iteración. Es decir, en lugar de tomar el punto medio del intervalo como aproximación a la raíz, se toma el punto de intersección de la recta que une los extremos del intervalo con el eje x.
+    </p>
+    <p>
+        El método de la falsa posición tiene la ventaja de converger más rápidamente que el método de la bisección, pero puede ser más sensible a errores de redondeo y a la elección del intervalo inicial.
+    </p>
+    <p>
+        Su formula es la siguiente:
+    </p>
+    <img src="https://latex.codecogs.com/png.image?\dpi{150}&space;x_{n&plus;1}=x_n-\frac{f(x_n)(x_n-x_{n-1})}{f(x_n)-f(x_{n-1})}" title="false_position_formula" />
+    <h4>Instrucciones:</h4>
+    <p>
+        1. Ingresar al siguiente enlace https://octave-online.net/
+    </p>
+    <p>
+        2. Copiar y pegar el siguiente codigo
+    </p>
+    clc<br>
+    funcion = input('Escriba la f(x) entre parentesis:','s')<br>
+    funcion = inline(funcion);<br>
+    
+    xi = input('Ingrese el valor de xi inferior: ');<br>
+    xu = input('Ingrese el valor de xu superior: ');<br>
+    
+    cantidad = input('Ingrese el numero de iteraciones:');<br>
+    i=1;<br>
+    
+    if funcion(xi)*funcion(xu)<0<br>
+    
+    fprintf("%s\t%s\t%s\t%s\t%s\t\%s\t\%s\n", 'i','xi','xu','xr','f(xi)','f(xr)', 'f(xi)*f(xr)')<br>
+    
+    while i < cantidad<br>
+        xr = xu-((funcion(xu)*(xi-xu))/(funcion(xi)-funcion(xu)));<br>
+        fprintf("%d\t", i) <br>
+        fprintf("%.4f\t", xi)<br>
+        fprintf("%.4f\t", xu)<br>
+        fprintf("%.4f\t", xr)<br>
+        fprintf("%.4f\t", funcion(xi))<br>
+        fprintf("%.4f\t", funcion(xr))<br>
+           
+     if funcion(xi)*funcion(xr)<0<br>
+        fprintf("%.4f\t", funcion(xi)*funcion(xr)) <br>
+        xu = xr; <br>
+       
+     elseif funcion(xi)*funcion(xr)>0<br>
+        fprintf("%.4f\t", funcion(xi)*funcion(xr))<br>
+        xi = xr;<br>
+     
+     elseif funcion(xr)==0<br>
+        fprintf("%s","raiz encontrada")<br>
+        break <br>
+         
+     endif<br>
+        fprintf("\n")   <br>
+    i++;<br>
+    
+    endwhile<br>
+    
+         fprintf(" la raiz aproximada es: %.4f \n", xr)<br>
+    else<br>
+     fprintf("%s","no se puede resolver por este metodo")<br>
+    endif<br>
+    <p>
+        3. Presionar enter 
+    </p>
+    Con estos 3 simples pasos tendremos un ejemplo del metodo grafico.<br>
+    Nota: Es posible que el programa no se ejecute correctamente ya que la version de octave en linea esta demasiado desactualizado. recomiendo copiar y pegar en el octave que se descargo.
+    <p>
+        <a href="index.html">Regresar al inicio</a>
+    </p>
+</body>
+</html>

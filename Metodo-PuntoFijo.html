@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Método gráfico - Explicación</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <h1>Método de Punto Fijo - Explicación</h1>
+    <p>
+        El método de punto fijo es una técnica utilizada para encontrar las raíces de una función. Este método se basa en la idea de que, si una función f(x) tiene una raíz en un intervalo [a, b], entonces existe una transformación g(x) de la función original que tiene el mismo punto fijo en el mismo intervalo [a, b]. Es decir, g(x) es una función tal que g(x) = x en el punto fijo común.
+    </p>
+    <p>
+        Para aplicar el método de punto fijo, se parte de una aproximación inicial x0 y se aplica la transformación g(x) repetidamente hasta que se alcance un valor de x que satisfaga una tolerancia preestablecida.
+    </p>
+    <p>
+        Es importante tener en cuenta que la transformación g(x) debe cumplir con ciertas condiciones para garantizar la convergencia del método. En particular, g(x) debe ser una función continua en el intervalo [a, b], y la derivada de g(x) en el intervalo debe tener una magnitud menor que 1 en valor absoluto. Estas condiciones aseguran que el método de punto fijo converge a una solución única en el intervalo [a, b].
+    </p>
+    <h4>Instrucciones:</h4>
+    <p>
+        1. Ingresar al siguiente enlace https://octave-online.net/
+    </p>
+    <p>
+        2. Copiar y pegar el siguiente codigo
+    </p>
+    clc;<br>
+    fprintf("***METODO DE PUNTO FIJO***\n"); <br>        
+    
+    f  = input(" Escribe la funcion f(x) = ", "s");  <br>      
+    f = inline(f); <br>
+    
+    xi = input("Escribe el valor de Xo = "); <br>
+    
+    cantidadIteraciones = input("Digite cantidad de iteraciones a realizar:  "); <br>
+    
+    contador = 0; <br>
+    fprintf("------------------------------------------------|\n" ) <br>
+    fprintf("%s\t\t  %s\t\t  %s \n", "i", "xr", "|EA|" )<br>
+    fprintf("------------------------------------------------|\n" )<br>
+    
+    function puntoFijo(f, xnueva, contador, cantidadIteraciones)<br>
+            
+          fprintf("%.0f\t\t", contador);<br>
+          fprintf("%.6f\t", xnueva);<br>
+             
+       while contador <= cantidadIteraciones<br>
+              if contador > 0<br>
+                xanterior = xnueva;<br> 
+                xnueva = f(xanterior);<br>
+                fprintf("%.0f\t\t", contador);<br>
+                fprintf("%.6f\t", xnueva);<br>
+                ea = abs((xnueva - xanterior)/xnueva) *100;<br>
+                fprintf("%.2f", ea);<br>
+            
+              endif<br>
+             
+             fprintf("\n");<br>
+             contador = contador + 1;<br>
+       endwhile<br>
+       fprintf("------------------------------------------------|\n" )<br>
+       fprintf("LA RAIZ APROXIMADA: %.6f\n", xnueva);<br>
+    endfunction<br>
+    
+    puntoFijo(f, xi, contador, cantidadIteraciones)<br>
+    <p>
+        3. Presionar enter 
+    </p>
+    Con estos 3 simples pasos tendremos un ejemplo del metodo grafico.<br>
+    Nota: Es posible que el programa no se ejecute correctamente ya que la version de octave en linea esta demasiado desactualizado. recomiendo copiar y pegar en el octave que se descargo.
+    <p>
+        <a href="index.html">Regresar al inicio</a>
+    </p>
+</body>
+</html>

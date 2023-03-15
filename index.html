@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Menu Métodos Numéricos</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <nav>
+        <ul>
+          <li class="dropdown">
+            <a href="#">Métodos cerrados</a>
+            <ul class="dropdown-content">
+              <li><a href="metodo-grafico.html">Gráfico</a></li>
+              <li><a href="Metodo-Biseccion.html">Bisección</a></li>
+              <li><a href="Metodo-FalsaPosicion.html">Falsa posición</a></li>
+            </ul>
+          </li>
+          <li class="dropdown">
+            <a href="#">Métodos abiertos</a>
+            <ul class="dropdown-content">
+              <li><a href="Metodo-PuntoFijo.html">Punto fijo</a></li>
+              <li><a href="Metodo-Secante.html">Secante</a></li>
+              <li><a href="Metodo-NewtonRaphson.html">Newton-Raphson</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <h1>Bienvenido a Métodos Numéricos</h1>
+      <img src="https://www.pngkey.com/png/full/321-3210715_logo-umg-logo-universidad-mariano-galvez.png" alt="Logo UMG" width="200">
+      <p>
+        El funcionamiento de esta pagina web es sencillo, unicamente debemos hacer click en "métodos cerrados" o "Métodos abiertos" esto desplegara un menu en el cual simplemente debemos hacer click
+        en el metodo que queremos, esto nos abrira un pagina en la cual se nos explica el funcionamiento del metodo y como aplicarlo en octave.
+      </p>
+      <p>
+        Esta pagina web fue realizada por José Raúl Guevara Juarez<br>
+        carné: 5090-21-953
+      </p>
+    </main>
+    <script>
+      const dropdowns = document.querySelectorAll('.dropdown');
+
+      dropdowns.forEach((dropdown) => {
+        dropdown.addEventListener('click', () => {
+          dropdown.classList.toggle('active');
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Método Biseccion - Explicación</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <h1>Método gráfico - Explicación</h1>
+    <p>
+        El método de la bisección es un algoritmo utilizado para encontrar la raíz de una función continua en un intervalo cerrado. El método se basa en el teorema del valor intermedio, que establece que si una función continua f(x) cambia de signo en un intervalo cerrado [a, b], entonces existe al menos un punto c en el intervalo donde f(c) = 0.
+    </p>
+    <p>
+        El método de la bisección consiste en partir el intervalo [a, b] por la mitad y evaluar la función en el punto medio c = (a + b)/2. Si f(c) es igual a cero, se ha encontrado la raíz de la función. Si no es cero, entonces se determina en qué mitad del intervalo se encuentra la raíz y se repite el proceso en esa mitad, hasta que se alcance la precisión deseada.
+    </p>
+    <p>
+        Este método tiene la ventaja de ser muy simple y garantizar la convergencia a la raíz si se cumplen ciertas condiciones, como que la función sea continua en el intervalo y que los valores de la función en los extremos del intervalo tengan signos opuestos.
+    </p>
+    <p>
+        Su formula es la siguiente:
+    </p>
+    <img src="https://latex.codecogs.com/png.image?\dpi{150}&space;x_{m}=\frac{x_{a}+x_{b}}{2}" title="bisection_formula" />
+    <h4>Instrucciones:</h4>
+    <p>
+        1. Ingresar al siguiente enlace https://octave-online.net/
+    </p>
+    <p>
+        2. Copiar y pegar el siguiente codigo
+    </p>
+    clc
+    f = @(x) 3*x^2 + 10;<br>
+    
+    xi = input('Ingrese el valor de xi inferior: ');<br>
+    xu = input('Ingrese el valor de xu superior: ');<br>
+    
+    cantidad = input('Ingrese el numero de iteraciones:');<br>
+    i=1;<br>
+    
+    if funcion(xi)*funcion(xu)<0<br>
+    
+    fprintf("%s\t%s\t%s\t%s\t%s\t\%s\t\%s\n", 'i','xi','xu','xr','f(xi)','f(xr)', 'f(xi)*f(xr)')<br>
+    
+    while i < cantidad<br>
+        xr = (xi + xu)/2;<br>
+        fprintf("%d\t", i)<br> 
+        fprintf("%.4f\t", xi)<br>
+        fprintf("%.4f\t", xu)<br>
+        fprintf("%.4f\t", xr)<br>
+        fprintf("%.4f\t", funcion(xi))<br>
+        fprintf("%.4f\t", funcion(xr))<br>
+           
+     if funcion(xi)*funcion(xr)<0<br>
+        fprintf("%.4f\t", funcion(xi)*funcion(xr))<br> 
+        xu = xr; <br>
+       
+     elseif funcion(xi)*funcion(xr)>0<br>
+        fprintf("%.4f\t", funcion(xi)*funcion(xr))<br>
+        xi = xr;<br>
+     
+     elseif funcion(xr)==0<br>
+        fprintf("%s","raiz encontrada")<br>
+        break <br>
+         
+     endif<br>
+        fprintf("\n")<br>   
+    i++;<br>
+    
+    endwhile<br>
+    
+         fprintf(" la raiz aproximada es: %.4f \n", xr)<br>
+    else<br>
+     fprintf("%s","no se puede resolver por este metodo")<br>
+    endif<br>
+    <p>
+        3. Presionar enter 
+    </p>
+    Con estos 3 simples pasos tendremos un ejemplo del metodo grafico.<br>
+    Nota: Es posible que el programa no se ejecute correctamente ya que la version de octave en linea esta demasiado desactualizado. recomiendo copiar y pegar en el octave que se descargo.
+    <p>
+        <a href="index.html">Regresar al inicio</a>
+    </p>
+</body>
+</html>

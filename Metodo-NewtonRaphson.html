@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Método Newton-Rapshson - Explicación</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <h1>Método de la Secante - Explicación</h1>
+    <p>
+        El método de Newton-Raphson es un método numérico utilizado para encontrar raíces de una función. A diferencia de la bisección y la falsa posición, este método converge mucho más rápido a la solución. El método consiste en elegir un valor inicial cercano a la solución y luego aplicar la siguiente fórmula iterativa:
+    </p>
+    <img src="https://latex.codecogs.com/png.image?\dpi{150}&space;x_{n&plus;1}=x_n-\frac{f(x_n)}{f'(x_n)}" title="newton-raphson" />
+    <p>
+        Donde f(x) es la función a la que se le busca la raíz y f'(x) es su derivada. El método se repite hasta que se alcanza una tolerancia aceptable o hasta que se alcanza un número máximo de iteraciones.
+    </p>
+    <p>
+        Este método tiene algunas limitaciones, como la necesidad de conocer la derivada de la función en el punto inicial, lo que puede ser difícil en algunos casos. Además, si la función presenta una raíz múltiple o si el punto inicial está muy lejos de la solución, el método puede no converger correctamente.
+    </p>
+    <h4>Instrucciones:</h4>
+    <p>
+        1. Ingresar al siguiente enlace https://octave-online.net/
+    </p>
+    <p>
+        2. Copiar y pegar el siguiente codigo
+    </p>
+    #METODO DE NEWTON RAPSHON<br>
+    clc;<br>
+    funcion = input('Escribe la f(x) : ','s')<br>
+    funcion = inline(funcion);<br>
+    
+    derivada = input('Escribe la df(x) : ','s') <br>
+    derivada = inline(derivada);<br>
+    
+    xi = input('Ingrese el xi inicial: ');<br>
+    
+    cantidad = input('Ingrese el numero de iteraciones: ');<br>
+    i=1;<br>
+    
+    function ea = errora(xa,xp)<br>
+        ea = abs(((xa-xp)/xa)*100);<br>
+    endfunction<br>
+    
+    
+    if derivada(xi) == 0<br>
+        fprintf ('no se puede hallar una raiz');<br>
+    else<br>
+    
+        fprintf("%s\t %s\t\t  %s\n",'i','Xi',' Ea ');<br>
+            
+      while i <= cantidad<br>
+           fprintf('%d\t',i);<br> 
+           fprintf('%.8f\t',xi);<br>
+           xn = xi-(funcion(xi)/derivada(xi));<br>
+           fprintf('%.8f\t',errora(xn,xi)); <br>  
+           xi = xn;<br>
+           fprintf ("\n");<br>
+           i++;<br>
+    
+       endwhile<br>
+           fprintf ("____________________________________________\n");<br>
+           fprintf('\nLA RAIZ APROXIMADA ES: %.8f\n',xn);<br>
+                
+    endif<br>
+    
+    
+    <p>
+        3. Presionar enter 
+    </p>
+    Con estos 3 simples pasos tendremos un ejemplo del metodo grafico.<br>
+    Nota: Es posible que el programa no se ejecute correctamente ya que la version de octave en linea esta demasiado desactualizado. recomiendo copiar y pegar en el octave que se descargo.
+    <p>
+        <a href="index.html">Regresar al inicio</a>
+    </p>
+</body>
+</html>

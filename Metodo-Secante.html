@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Método de la Secante - Explicación</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <h1>Método de la Secante - Explicación</h1>
+    <p>
+        El método de la secante es un método numérico utilizado para encontrar las raíces de una función. Es un método de tipo abierto, es decir, no necesita un intervalo inicial que contenga la raíz como en el método de bisección.
+    </p>
+    <p>
+        El método de la secante es una versión mejorada del método de la regla falsa. En lugar de usar dos valores de la función para aproximar la pendiente de la recta, el método de la secante utiliza dos puntos cercanos a la raíz de la función para aproximar la pendiente de la recta. La aproximación se refina iterativamente, lo que resulta en una mejor aproximación de la raíz de la función.
+    </p>
+    <p>
+        El método de la secante utiliza la siguiente fórmula iterativa:
+    </p>
+    <img src="https://latex.codecogs.com/png.image?\dpi{150}&space;x_{n&plus;1}=x_n-\frac{f(x_n)(x_n-x_{n-1})}{f(x_n)-f(x_{n-1})}" title="secant_formula" />
+    <h4>Instrucciones:</h4>
+    <p>
+        1. Ingresar al siguiente enlace https://octave-online.net/
+    </p>
+    <p>
+        2. Copiar y pegar el siguiente codigo
+    </p>
+    #METODO DE LA SECANTE<br>
+    clc <br>
+    f = input("ingrese la funcion : ","s");<br>
+    funcion = inline(f);<br>
+    
+    xi= input("punto de incicio 1: ");<br>
+    
+    xf= input("punto de inicio 2: ");<br>
+    
+    erro= input("error aproximado: ");<br>
+    
+    function ea = errora(xn,xp)<br>
+    ea = abs( xn - xp );<br>
+    end<br>
+    
+    if funcion(xi)-funcion(xf)~=0<br>
+    
+     i=1;<br>
+     fprintf ("_________________________________________\n");<br>
+     fprintf("%s\t %s\t\t %s\n", 'I', 'XN', '|EA|');<br>
+     fprintf ("_________________________________________\n");<br>
+     fprintf('%.0f\t', i);<br>        
+     fprintf('%.5f\t\t', xi);<br>
+     fprintf('%.5f\t', errora(xf,xi));<br>  
+     fprintf ("\n"); <br>
+    while errora(xf,xi)>erro<br>
+    
+     xn = xi-(((xi-xf)/(funcion(xi)-funcion(xf)))*funcion(xi));<br>
+     xf = xi;<br>
+     xi = xn;<br>
+     i++;<br>
+     fprintf('%.0f\t', i);<br>
+     fprintf('%.5f\t\t', xn);<br>
+     fprintf('%.5f\t', errora(xn,xf));<br>
+     fprintf ("\n"); <br>
+    endwhile;<br>
+     fprintf ("__________________________________________\n");<br>
+            
+    else <br>
+    fprintf("no se puede calcular");<br>
+    
+    end<br>
+    <p>
+        3. Presionar enter 
+    </p>
+    Con estos 3 simples pasos tendremos un ejemplo del metodo grafico.<br>
+    Nota: Es posible que el programa no se ejecute correctamente ya que la version de octave en linea esta demasiado desactualizado. recomiendo copiar y pegar en el octave que se descargo.
+    <p>
+        <a href="index.html">Regresar al inicio</a>
+    </p>
+</body>
+</html>

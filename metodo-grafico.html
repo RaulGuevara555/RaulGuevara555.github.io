@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Método gráfico - Explicación</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <h1>Método gráfico - Explicación</h1>
+    <p>
+        El método gráfico es una técnica utilizada para encontrar la raíz de una función mediante la representación gráfica de la misma. Para aplicar este método, se grafica la función en un sistema de coordenadas cartesianas, y luego se localiza el punto en el eje x donde la función corta el eje x, es decir, donde el valor de la función es igual a cero. Este punto corresponde a la raíz de la función.
+    </p>
+    <p>
+        Si la función no corta el eje x en ningún punto, o corta el eje x en más de un punto, el método gráfico no es aplicable. Además, es importante tener en cuenta que este método es aproximado y puede ser impreciso si la escala del gráfico no es adecuada o si la función es muy compleja.
+    </p>
+    <h4>Instrucciones:</h4>
+    <p>
+        1. Ingresar al siguiente enlace https://octave-online.net/
+    </p>
+    <p>
+        2. Copiar y pegar el siguiente codigo
+    </p>
+        x = linspace(-4, 4, 100);<br>
+        y1 = -12*x + 1;<br>
+        y2 = -8*x.^2 - 5*x + 32;<br>
+        y3 = -2*x.^3 + x;<br>
+        plot(x, y1, 'r', x, y2, 'g', x, y3, 'b');<br>
+        xlabel('x');<br>
+        ylabel('y');<br>
+        legend('y = -12x + 1', 'y = -8x^2 - 5x + 32', 'y = -2x^3 + x');<br>
+    <p>
+        3. Presionar enter 
+    </p>
+    Con estos 3 simples pasos tendremos un ejemplo del metodo grafico.
+    <p>
+        <a href="index.html">Regresar al inicio</a>
+    </p>
+</body>
+</html>
